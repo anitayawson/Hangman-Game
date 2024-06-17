@@ -1,10 +1,23 @@
 import "./App.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home/Home";
+import HowToPlay from "./pages/HowToPlay/HowToPlay";
+import Categories from "./pages/Categories/Categories";
+import InGame from "./pages/InGame/InGame";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <BrowserRouter>
+      <main className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/how-to-play" element={<HowToPlay />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/in-game/:slug" element={<InGame />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
