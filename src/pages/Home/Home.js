@@ -1,4 +1,3 @@
-import { ButtonOne, ButtonTwo } from "../../components/Buttons/Buttons";
 import "./Home.scss";
 import logo from "../../assets/images/logo.svg";
 import PlayButton from "../../assets/images/icon-play.svg";
