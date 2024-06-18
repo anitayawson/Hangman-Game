@@ -1,13 +1,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20%;
-}
-
 .btn-one {
   background-color: $blue;
   @include heading-s;
