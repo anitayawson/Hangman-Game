@@ -1,0 +1,43 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+}
+
+.btn-one {
+  background-color: $blue;
+  @include heading-s;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2.5rem;
+  padding: 0.75rem 4rem;
+  color: white;
+  box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #3c74ff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3c74ff;
+    box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #5a8fff;
+  }
+}
+
+.btn-two {
+  background: linear-gradient(to right, #fe71fe 0%, #7199ff 100%);
+  @include heading-s;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2.5rem;
+  padding: 0.75rem 4rem;
+  color: white;
+  box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #c642fb;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3c74ff;
+    box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #5a8fff;
+  }
+}
