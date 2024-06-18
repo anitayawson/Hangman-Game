@@ -19,4 +19,67 @@
   @include desktop {
     background-image: url("../../assets/images/background-desktop.svg");
   }
+
+  &__content {
+    background: linear-gradient(
+      to bottom,
+      rgba(52, 74, 186, 0.92) 0%,
+      rgba(0, 20, 121, 0.92) 83%
+    );
+    box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #3c74ff;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5625rem;
+    width: 100%;
+    padding-bottom: 4rem;
+    margin: 0 1.5625rem;
+
+    @include tablet {
+      padding-bottom: 3.1875rem;
+      margin: 0 5.5rem;
+    }
+
+    @include desktop {
+      margin: 0 30%;
+    }
+  }
+
+  &__play-btn {
+    @include btn-two;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+
+    @include tablet {
+      width: 12.5rem;
+      height: 12.5rem;
+    }
+  }
+
+  &__play-icon {
+    width: 3.25rem;
+
+    @include tablet {
+      width: 4.125rem;
+    }
+  }
+
+  &__instructions-btn {
+    @include btn-one;
+  }
+}
+
+.logo {
+  width: 16.4375rem;
+  margin-top: -3.25rem;
+
+  @include tablet {
+    width: 23.375rem;
+    margin-top: -7rem;
+  }
 }
