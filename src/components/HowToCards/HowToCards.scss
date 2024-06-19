@@ -1,0 +1,37 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.instructions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.instruction-card {
+  background-color: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__number {
+    color: $blue;
+  }
+
+  &__title {
+    letter-spacing: 0.075rem;
+    text-transform: uppercase;
+    color: $dark-navy;
+  }
+
+  &__content {
+    letter-spacing: 0.05rem;
+    color: #887dc0;
+  }
+}

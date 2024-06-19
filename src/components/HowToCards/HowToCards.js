@@ -1,4 +1,4 @@
-import "./HowToCard.scss";
+import "./HowToCards.scss";
 
 const instructions = [
   {
@@ -24,9 +24,9 @@ const instructions = [
   },
 ];
 
-export default function HowToCard() {
+export default function HowToCards() {
   return (
-    <div>
+    <div className="instructions-section">
       {instructions.map((card) => (
         <article className="instruction-card" key={card.id}>
           <div className="instruction-card__header">
