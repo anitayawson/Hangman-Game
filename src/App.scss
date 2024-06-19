@@ -24,3 +24,23 @@ h5,
 h6 {
   margin: 0;
 }
+
+.App {
+  background-image: url("./assets/images/background-mobile.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    background-image: url("./assets/images/background-tablet.svg");
+  }
+
+  @include desktop {
+    background-image: url("./assets/images/background-desktop.svg");
+  }
+}

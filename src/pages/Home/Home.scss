@@ -2,24 +2,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .home {
-  background-image: url("../../assets/images/background-mobile.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @include tablet {
-    background-image: url("../../assets/images/background-tablet.svg");
-  }
-
-  @include desktop {
-    background-image: url("../../assets/images/background-desktop.svg");
-  }
-
   &__content {
     background: linear-gradient(
       to bottom,
@@ -33,16 +15,15 @@
     align-items: center;
     gap: 3.5625rem;
     width: 100%;
+    padding: 0 2rem 4rem;
     padding-bottom: 4rem;
-    margin: 0 1.5625rem;
 
     @include tablet {
-      padding-bottom: 3.1875rem;
-      margin: 0 5.5rem;
+      padding: 0 6.8125rem 3.1875rem;
     }
 
     @include desktop {
-      margin: 0 30%;
+      // margin: 0 30%;
     }
   }
 

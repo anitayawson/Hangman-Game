@@ -45,6 +45,7 @@
   color: white;
   box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #3c74ff;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: #3c74ff;
@@ -62,6 +63,7 @@
   color: white;
   box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #c642fb;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background: linear-gradient(to right, #f798f7 0%, #86a5f6 100%);
