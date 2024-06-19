@@ -32,8 +32,14 @@ export default function HowToCards() {
           <div className="instruction-card__header">
             <p className="instruction-card__number">{card.number}</p>
             <p className="instruction-card__title">{card.title}</p>
+            <p className="instruction-card__content--desktop-view">
+              {card.content}
+            </p>
           </div>
-          <p className="instruction-card__content">{card.content}</p>
+          <div className="instruction-card__tablet-wrapper">
+            <p className="instruction-card__title--tablet-view">{card.title}</p>
+            <p className="instruction-card__content">{card.content}</p>
+          </div>
         </article>
       ))}
     </div>

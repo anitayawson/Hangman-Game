@@ -7,17 +7,28 @@
 
   &__icon {
     width: 1.0906rem;
+
+    @include tablet {
+      width: 1.75rem;
+    }
   }
 }
 
 .how-to {
   margin: 0 1.5625rem;
 
+  @include tablet {
+    margin: 0 2.75rem;
+  }
+
   &__nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 2rem 0 5rem;
+
+    @include tablet {
+    }
   }
 
   &__title {
@@ -26,6 +37,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+
+    @include tablet {
+      font-size: 6.5rem;
+      align-self: center;
+    }
   }
 
   &__cards {

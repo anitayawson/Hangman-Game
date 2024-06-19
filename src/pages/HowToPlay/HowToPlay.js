@@ -1,16 +1,11 @@
 import "./HowToPlay.scss";
 import "../../components/HowToCards/HowToCards";
 import HowToCards from "../../components/HowToCards/HowToCards";
-import { useNavigate } from "react-router-dom";
-
 import BackIcon from "../../assets/images/icon-back.svg";
+import useNavigation from "../../hooks/useNavigation";
 
 export default function HowToPlay() {
-  const navigate = useNavigate();
-
-  const navigateBack = () => {
-    navigate(-1);
-  };
+  const { navigateBack } = useNavigation();
 
   return (
     <div className="how-to">
