@@ -6,11 +6,23 @@
 
   &__icon {
     width: 1rem;
+
+    @include tablet {
+      width: 1.6rem;
+    }
+
+    @include desktop {
+      width: 2.375rem;
+    }
   }
 }
 
 .heart-icon {
   width: 1.635rem;
+
+  @include tablet {
+    width: 3.3331rem;
+  }
 }
 
 .in-game {
@@ -25,16 +37,37 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @include tablet {
+      gap: 2rem;
+    }
+
+    @include desktop {
+      gap: 3.5625rem;
+    }
   }
 
   &__category-name {
     font-size: 2.5rem;
     color: white;
+
+    @include tablet {
+      @include heading-m;
+    }
+
+    @include desktop {
+      @include heading-l;
+      text-transform: capitalize;
+    }
   }
 
   &__progress {
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    @include tablet {
+      gap: 2.5rem;
+    }
   }
 }

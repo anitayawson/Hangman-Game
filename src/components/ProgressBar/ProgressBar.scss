@@ -7,6 +7,16 @@
   height: 1rem;
   border-radius: 6rem;
   padding: 0.25rem;
+
+  @include tablet {
+    width: 10rem;
+    height: 1.9375rem;
+    padding: 0.6rem;
+  }
+
+  @include tablet {
+    width: 15rem;
+  }
 }
 
 .progress {
