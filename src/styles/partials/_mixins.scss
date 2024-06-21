@@ -79,6 +79,19 @@
   width: 2.5rem;
   height: 2.5rem;
   cursor: pointer;
+  padding: 0.6875rem;
+
+  &__icon {
+    width: 1.0906rem;
+
+    @include tablet {
+      width: 1.75rem;
+    }
+
+    @include desktop {
+      width: 2.5625rem;
+    }
+  }
 
   &:hover {
     background: linear-gradient(#fe83fe, #83a5fc);
@@ -93,5 +106,54 @@
   @include desktop {
     width: 5.875rem;
     height: 5.875rem;
+  }
+}
+
+@mixin page-margins {
+  margin: 0 1.5625rem;
+
+  @include tablet {
+    margin: 0 2.75rem;
+  }
+
+  @include desktop {
+    margin: 0 7rem;
+  }
+}
+
+@mixin page-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0 5rem;
+
+  @include tablet {
+  }
+}
+
+@mixin responsive-title-img(
+  $mobile-url,
+  $mobile-width,
+  $tablet-url,
+  $tablet-width,
+  $desktop-url,
+  $desktop-width
+) {
+  background-image: url($mobile-url);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: $mobile-width;
+  height: 3.625rem;
+
+  @include tablet {
+    background-image: url($tablet-url);
+    width: $tablet-width;
+    height: 7.8125rem;
+  }
+
+  @include desktop {
+    background-image: url($desktop-url);
+    width: $desktop-width;
+    height: 10.1875rem;
   }
 }

@@ -3,59 +3,23 @@
 
 .back-btn {
   @include nav-btn;
-  padding: 0.6875rem;
-
-  &__icon {
-    width: 1.0906rem;
-
-    @include tablet {
-      width: 1.75rem;
-    }
-
-    @include desktop {
-      width: 2.5625rem;
-    }
-  }
 }
 
 .how-to {
-  margin: 0 1.5625rem;
-
-  @include tablet {
-    margin: 0 2.75rem;
-  }
-
-  @include desktop {
-    margin: 0 7rem;
-  }
+  @include page-margins;
 
   &__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 2rem 0 5rem;
-
-    @include tablet {
-    }
+    @include page-navigation;
   }
 
   &__title {
-    background-image: url("../../assets/images/how-to-play-mobile.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 11.5625rem;
-    height: 3.625rem;
-
-    @include tablet {
-      background-image: url("../../assets/images/how-to-play-tablet.svg");
-      width: 21.4375rem;
-      height: 7.8125rem;
-    }
-
-    @include desktop {
-      background-image: url("../../assets/images/how-to-play-desktop.svg");
-      width: 28rem;
-      height: 10.1875rem;
-    }
+    @include responsive-title-img(
+      "../../assets/images/how-to-play-mobile.svg",
+      11.5625rem,
+      "../../assets/images/how-to-play-tablet.svg",
+      21.4375rem,
+      "../../assets/images/how-to-play-desktop.svg",
+      28rem
+    );
   }
 }
