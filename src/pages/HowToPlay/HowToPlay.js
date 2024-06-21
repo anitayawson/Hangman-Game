@@ -2,6 +2,10 @@ import "./HowToPlay.scss";
 import "../../components/HowToCards/HowToCards";
 import HowToCards from "../../components/HowToCards/HowToCards";
 import BackIcon from "../../assets/images/icon-back.svg";
+import HowToPlayMobile from "../../assets/images/how-to-play-mobile.svg";
+import HowToPlayTablet from "../../assets/images/background-tablet.svg";
+import HowToPlayDesktop from "../../assets/images/how-to-play-desktop.svg";
+
 import useNavigation from "../../hooks/useNavigation";
 
 export default function HowToPlay() {
@@ -13,7 +17,7 @@ export default function HowToPlay() {
         <button onClick={navigateBack} className="back-btn">
           <img className="back-btn__icon" src={BackIcon} alt="Back Icon" />
         </button>
-        <h2 className="how-to__title">How To Play</h2>
+        <div className="how-to__title"></div>
       </nav>
       <section className="how-to__cards">
         <HowToCards />

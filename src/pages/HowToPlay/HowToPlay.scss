@@ -32,18 +32,22 @@
   }
 
   &__title {
-    @include heading-m;
-    background: linear-gradient(#67b6ff, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background-image: url("../../assets/images/how-to-play-mobile.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 11.5625rem;
+    height: 3.625rem;
 
     @include tablet {
-      font-size: 6.5rem;
-      align-self: center;
+      background-image: url("../../assets/images/how-to-play-tablet.svg");
+      width: 21.4375rem;
+      height: 7.8125rem;
     }
-  }
 
-  &__cards {
+    @include desktop {
+      background-image: url("../../assets/images/how-to-play-desktop.svg");
+      width: 28rem;
+      height: 10.1875rem;
+    }
   }
 }
