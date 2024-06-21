@@ -11,6 +11,10 @@
     @include tablet {
       width: 1.75rem;
     }
+
+    @include desktop {
+      width: 2.5625rem;
+    }
   }
 }
 
@@ -19,6 +23,10 @@
 
   @include tablet {
     margin: 0 2.75rem;
+  }
+
+  @include desktop {
+    margin: 0 7rem;
   }
 
   &__nav {
