@@ -2,6 +2,7 @@ import "./InGame.scss";
 import MenuIcon from "../../assets/images/icon-menu.svg";
 import HeartIcon from "../../assets/images/icon-heart.svg";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
+import Keyboard from "../../components/Keyboard/Keyboard";
 
 export default function InGame() {
   return (
@@ -18,6 +19,9 @@ export default function InGame() {
           <img className="heart-icon" src={HeartIcon} alt="Heart" />
         </div>
       </nav>
+      <section>
+        <Keyboard />
+      </section>
     </div>
   );
 }
