@@ -8,9 +8,9 @@ export default function Home() {
     <div className="home">
       <article className="home__content">
         <img src={logo} alt="Game Logo" className="logo" />
-        <button className="home__play-btn">
+        <Link to="/categories" className="home__play-btn">
           <img className="home__play-icon" src={PlayButton} alt="Play" />
-        </button>
+        </Link>
         <Link to="/how-to-play" className="home__instructions-btn">
           How to Play
         </Link>
