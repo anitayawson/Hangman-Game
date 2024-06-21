@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.progress-bar {
+  background-color: white;
+  width: 3.5625rem;
+  height: 1rem;
+  border-radius: 6rem;
+  padding: 0.25rem;
+}
+
+.progress {
+  background-color: $dark-navy;
+  border-radius: 6rem;
+  width: 50%;
+  height: 100%;
+}

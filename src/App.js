@@ -14,7 +14,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/how-to-play" element={<HowToPlay />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/in-game/:slug" element={<InGame />} />
+          {/* <Route path="/in-game/:slug" element={<InGame />} /> */}
+          <Route path="/in-game" element={<InGame />} />
         </Routes>
       </main>
     </BrowserRouter>
