@@ -11,6 +11,11 @@
     gap: 1.5rem 1rem;
   }
 
+  @include desktop {
+    grid-template-columns: repeat(auto-fill, minmax(109px, 1fr));
+    gap: 1.5rem;
+  }
+
   &__letter {
     background-color: white;
     color: $dark-navy;
@@ -34,6 +39,10 @@
       @include heading-m;
       padding: 0.8125rem 1.4688rem;
       border-radius: 1.5rem;
+    }
+
+    @include desktop {
+      padding: 0.8125rem 2.875rem;
     }
   }
 }
