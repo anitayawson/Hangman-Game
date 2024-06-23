@@ -21,7 +21,7 @@ export default function InGame() {
         </div>
       </nav>
       <section>
-        <WordDisplay />
+        <WordDisplay word="United Kingdom" />
       </section>
       <section>
         <Keyboard />

@@ -7,6 +7,11 @@
   align-items: center;
   gap: 0.5rem;
 
+  &__word {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__letter {
     @include display-letter;
 

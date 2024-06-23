@@ -1,13 +1,17 @@
 import "./WordDisplay.scss";
 
-export default function WordDisplay() {
+export default function WordDisplay({ word }) {
   return (
     <div className="word-display">
-      <div className="word-display__letter">A</div>
-      <div className="word-display__letter">B</div>
-      <div className="word-display__letter--disabled"></div>
-      <div className="word-display__letter">D</div>
-      <div className="word-display__letter">E</div>
+      {word.split(" ").map((word, wordIndex) => (
+        <div key={wordIndex} className="word-display__word">
+          {word.split("").map((letter, letterIndex) => (
+            <div key={letterIndex} className="word-display__letter">
+              {letter}
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
