@@ -34,7 +34,6 @@ h6 {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   @include tablet {
     background-image: url("./assets/images/background-tablet.svg");

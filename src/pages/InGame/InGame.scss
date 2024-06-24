@@ -31,6 +31,12 @@
 
   &__nav {
     @include page-navigation;
+    margin-top: 2.875rem;
+    margin-bottom: 0;
+
+    @include tablet {
+      margin-top: 3.75rem;
+    }
   }
 
   &__nav-left {
