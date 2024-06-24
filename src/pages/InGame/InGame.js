@@ -1,5 +1,6 @@
 import "./InGame.scss";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import MenuIcon from "../../assets/images/icon-menu.svg";
 import HeartIcon from "../../assets/images/icon-heart.svg";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
@@ -9,6 +10,8 @@ import InGameModal from "../../components/InGameModal/InGameModal";
 
 export default function InGame() {
   const [showModal, setShowModal] = useState(false);
+  const location = useLocation();
+  const { word, category } = location.state || {};
 
   const handleOpenModal = () => {
     setShowModal(true);
@@ -33,7 +36,7 @@ export default function InGame() {
         </div>
       </nav>
       <section>
-        <WordDisplay word="United Kingdom" />
+        <WordDisplay word={word} />
       </section>
       <section>
         <Keyboard />
