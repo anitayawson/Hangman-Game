@@ -26,6 +26,7 @@
 }
 
 .in-game {
+  @include page-tint-background;
   @include page-margins;
   width: 100%;
 

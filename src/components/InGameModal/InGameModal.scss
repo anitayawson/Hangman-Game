@@ -3,16 +3,12 @@
 
 .modal {
   &__backdrop {
+    @include page-tint-background;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      rgba(26, 4, 58, 0.75) 0%,
-      rgba(21, 18, 120, 0.75) 70%,
-      rgba(43, 22, 119, 0.75) 100%
-    );
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,6 +17,7 @@
 
   &__content {
     @include modal-screen;
+
     margin: 0 1.5625rem;
     padding-bottom: 5.4375rem;
 

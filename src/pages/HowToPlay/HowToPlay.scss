@@ -6,6 +6,7 @@
 }
 
 .how-to {
+  @include page-tint-background;
   @include page-margins;
 
   &__nav {
