@@ -1,5 +1,6 @@
 import "./InGameModal.scss";
-import PausedTitleImg from "../../assets/images/paused.svg";
+import PausedTitleImg from "../../assets/images/paused-mobile.svg";
+import { Link } from "react-router-dom";
 
 export default function InGameModal({ show, onClose }) {
   return (
@@ -9,7 +10,7 @@ export default function InGameModal({ show, onClose }) {
         <div className="modal__btns">
           <button onClick={onClose}>Continue</button>
           <button>New Category</button>
-          <button>Quit Game</button>
+          <Link to="/">Quit Game</Link>
         </div>
       </div>
     </div>

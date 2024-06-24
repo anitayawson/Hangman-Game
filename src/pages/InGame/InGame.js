@@ -38,7 +38,7 @@ export default function InGame() {
       <section>
         <Keyboard />
       </section>
-      <InGameModal show={showModal} onClose={handleCloseModal} />
+      {showModal && <InGameModal show={showModal} onClose={handleCloseModal} />}
     </div>
   );
 }
