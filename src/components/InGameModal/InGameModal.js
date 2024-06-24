@@ -9,7 +9,7 @@ export default function InGameModal({ show, onClose }) {
         <img className="modal__title-img" src={PausedTitleImg} alt="Paused" />
         <div className="modal__btns">
           <button onClick={onClose}>Continue</button>
-          <button>New Category</button>
+          <Link to="/categories">New Category</Link>
           <Link to="/">Quit Game</Link>
         </div>
       </div>
