@@ -6,18 +6,8 @@
   align-items: center;
 
   &__content {
-    background: linear-gradient(
-      to bottom,
-      rgba(52, 74, 186, 0.92) 0%,
-      rgba(0, 20, 121, 0.92) 83%
-    );
-    box-shadow: inset 0px -2px 0px 3px #140e66, inset 0px 1px 0px 6px #3c74ff;
-    border-radius: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include modal-screen;
     gap: 3.5625rem;
-    width: 100%;
     padding: 0 2rem 4rem;
     padding-bottom: 4rem;
 
