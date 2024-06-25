@@ -10,6 +10,7 @@ import InGameModal from "../../components/InGameModal/InGameModal";
 
 export default function InGame() {
   const [showModal, setShowModal] = useState(false);
+  const [guessedLetters, setGuessedLetters] = useState([]);
   const location = useLocation();
   const { word, category } = location.state || {};
 
@@ -21,6 +22,12 @@ export default function InGame() {
     setShowModal(false);
   };
 
+  const handleGuessedLetter = (letter) => {
+    if (!guessedLetters.includes(letter)) {
+      setGuessedLetters([...guessedLetters, letter]);
+    }
+  };
+
   return (
     <div className="in-game">
       <nav className="in-game__nav">
@@ -28,7 +35,7 @@ export default function InGame() {
           <button className="menu-btn" onClick={handleOpenModal}>
             <img className="menu-btn__icon" src={MenuIcon} alt="Back Icon" />
           </button>
-          <h3 className="in-game__category-name">Countries</h3>
+          <h3 className="in-game__category-name">{category}</h3>
         </div>
         <div className="in-game__progress">
           <ProgressBar />
@@ -36,10 +43,10 @@ export default function InGame() {
         </div>
       </nav>
       <section>
-        <WordDisplay word={word} />
+        <WordDisplay word={word} guessedLetters={guessedLetters} />
       </section>
       <section>
-        <Keyboard />
+        <Keyboard onGuessLetter={handleGuessedLetter} />
       </section>
       {showModal && <InGameModal show={showModal} onClose={handleCloseModal} />}
     </div>
