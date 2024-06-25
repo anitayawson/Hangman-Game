@@ -40,8 +40,13 @@
     }
 
     &:disabled {
-      background-color: #6c757d;
-      cursor: not-allowed;
+      cursor: default;
+      opacity: 0.25;
+
+      &:hover {
+        background-color: white;
+        color: $dark-navy;
+      }
     }
 
     @include tablet {

@@ -46,7 +46,10 @@ export default function InGame() {
         <WordDisplay word={word} guessedLetters={guessedLetters} />
       </section>
       <section>
-        <Keyboard onGuessLetter={handleGuessedLetter} />
+        <Keyboard
+          onGuessLetter={handleGuessedLetter}
+          guessedLetters={guessedLetters}
+        />
       </section>
       {showModal && <InGameModal show={showModal} onClose={handleCloseModal} />}
     </div>
