@@ -1,12 +1,11 @@
 import "./Categories.scss";
 import BackIcon from "../../assets/images/icon-back.svg";
 import useNavigation from "../../hooks/useNavigation";
-import categoriesData from "../../data/data.json";
+import { useCategories } from "../../contexts/CategoriesContext";
 
 export default function Categories() {
   const { navigateBack, navigate } = useNavigation();
-
-  const categories = categoriesData.categories;
+  const { categories } = useCategories();
 
   const categoryNames = [];
   for (const category in categories) {
