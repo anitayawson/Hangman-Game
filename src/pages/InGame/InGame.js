@@ -32,6 +32,8 @@ export default function InGame() {
     if (correctGuesses.length === wordLetters.length) {
       setIsGameWon(true);
       setShowModal(true);
+    } else {
+      setShowModal(false);
     }
   }, [guessedLetters, word]);
 

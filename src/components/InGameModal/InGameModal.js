@@ -9,6 +9,10 @@ export default function InGameModal({
   isGameWon,
   onRestartGame,
 }) {
+  if (!show) {
+    return null;
+  }
+
   return (
     <div className="modal__backdrop">
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
