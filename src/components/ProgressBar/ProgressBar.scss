@@ -22,6 +22,6 @@
 .progress {
   background-color: $dark-navy;
   border-radius: 6rem;
-  width: 50%;
   height: 100%;
+  transition: width 0.3s ease;
 }

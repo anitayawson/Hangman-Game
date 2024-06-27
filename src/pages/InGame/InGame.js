@@ -9,11 +9,14 @@ import WordDisplay from "../../components/WordDisplay/WordDisplay";
 import InGameModal from "../../components/InGameModal/InGameModal";
 import { useCategories } from "../../contexts/CategoriesContext";
 
+const MAX_TRIES = 8;
+
 export default function InGame() {
   const [showModal, setShowModal] = useState(false);
   const [guessedLetters, setGuessedLetters] = useState([]);
-  const [isGameWon, setIsGameWon] = useState(false);
+  const [isGameWon, setIsGameWon] = useState(null);
   const [word, setWord] = useState("");
+  const [progressPercentage, setProgressPercentage] = useState(100);
   const location = useLocation();
   const { category } = location.state || {};
   const { getRandomWord } = useCategories();
@@ -33,9 +36,21 @@ export default function InGame() {
       if (correctGuesses.length === wordLetters.length) {
         setIsGameWon(true);
         setShowModal(true);
+      } else {
+        const wrongGuesses = guessedLetters.filter(
+          (letter) => !wordLetters.includes(letter)
+        ).length;
+        const remainingTries = MAX_TRIES - wrongGuesses;
+        const percentage = (remainingTries / MAX_TRIES) * 100;
+        setProgressPercentage(percentage);
+        console.log(progressPercentage);
+        if (remainingTries === 0) {
+          setIsGameWon(false);
+          setShowModal(true);
+        }
       }
     }
-  }, [guessedLetters, word]);
+  }, [guessedLetters, word, progressPercentage]);
 
   const handleGuessedLetter = (letter) => {
     if (!guessedLetters.includes(letter)) {
@@ -46,24 +61,26 @@ export default function InGame() {
   const handlePlayAgain = () => {
     const randomWord = getRandomWord(category);
     setWord(randomWord);
-    setIsGameWon(false);
+    setIsGameWon(null);
     setGuessedLetters([]);
     setShowModal(false);
+    setProgressPercentage(100);
   };
 
   const handleResetGame = () => {
-    setIsGameWon(false);
+    setIsGameWon(null);
     setGuessedLetters([]);
     setShowModal(false);
     setWord("");
+    setProgressPercentage(100);
+  };
+
+  const handleContinue = () => {
+    setShowModal(false);
   };
 
   const handleOpenModal = () => {
     setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
   };
 
   return (
@@ -76,7 +93,7 @@ export default function InGame() {
           <h3 className="in-game__category-name">{category}</h3>
         </div>
         <div className="in-game__progress">
-          <ProgressBar />
+          <ProgressBar progressPercentage={progressPercentage} />
           <img className="heart-icon" src={HeartIcon} alt="Heart" />
         </div>
       </nav>
@@ -92,7 +109,7 @@ export default function InGame() {
       {showModal && (
         <InGameModal
           show={showModal}
-          onClose={handleCloseModal}
+          onClose={handleContinue}
           isGameWon={isGameWon}
           onPlayAgainGame={handlePlayAgain}
           onResetGame={handleResetGame}
