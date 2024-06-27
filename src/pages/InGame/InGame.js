@@ -25,27 +25,25 @@ export default function InGame() {
   }, [location.state]);
 
   useEffect(() => {
-    const wordLetters = word.toUpperCase().split("");
-    const correctGuesses = wordLetters.filter((letter) =>
-      guessedLetters.includes(letter)
-    );
-    if (correctGuesses.length === wordLetters.length) {
-      setIsGameWon(true);
-      setShowModal(true);
-    } else {
-      setShowModal(false);
+    if (word) {
+      const wordLetters = word.toUpperCase().split("");
+      const correctGuesses = wordLetters.filter((letter) =>
+        guessedLetters.includes(letter)
+      );
+      if (correctGuesses.length === wordLetters.length) {
+        setIsGameWon(true);
+        setShowModal(true);
+      }
     }
   }, [guessedLetters, word]);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
+  const handleGuessedLetter = (letter) => {
+    if (!guessedLetters.includes(letter)) {
+      setGuessedLetters([...guessedLetters, letter]);
+    }
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleRestartGame = () => {
+  const handlePlayAgain = () => {
     const randomWord = getRandomWord(category);
     setWord(randomWord);
     setIsGameWon(false);
@@ -53,10 +51,19 @@ export default function InGame() {
     setShowModal(false);
   };
 
-  const handleGuessedLetter = (letter) => {
-    if (!guessedLetters.includes(letter)) {
-      setGuessedLetters([...guessedLetters, letter]);
-    }
+  const handleResetGame = () => {
+    setIsGameWon(false);
+    setGuessedLetters([]);
+    setShowModal(false);
+    setWord("");
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -87,7 +94,8 @@ export default function InGame() {
           show={showModal}
           onClose={handleCloseModal}
           isGameWon={isGameWon}
-          onRestartGame={handleRestartGame}
+          onPlayAgainGame={handlePlayAgain}
+          onResetGame={handleResetGame}
         />
       )}
     </div>

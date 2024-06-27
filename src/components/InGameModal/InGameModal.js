@@ -7,7 +7,8 @@ export default function InGameModal({
   show,
   onClose,
   isGameWon,
-  onRestartGame,
+  onPlayAgain,
+  onResetGame,
 }) {
   if (!show) {
     return null;
@@ -22,11 +23,15 @@ export default function InGameModal({
           alt={isGameWon ? "You Win" : "Paused"}
         />
         <div className="modal__btns">
-          <button onClick={isGameWon ? onRestartGame : onClose}>
+          <button onClick={isGameWon ? onPlayAgain : onClose}>
             {isGameWon ? "Play Again!" : "Continue"}
           </button>
-          <Link to="/categories">New Category</Link>
-          <Link to="/">Quit Game</Link>
+          <Link to="/categories" onClick={onResetGame}>
+            New Category
+          </Link>
+          <Link to="/" onClick={onResetGame}>
+            Quit Game
+          </Link>
         </div>
       </div>
     </div>
