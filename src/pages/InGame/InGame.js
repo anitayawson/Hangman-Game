@@ -111,7 +111,7 @@ export default function InGame() {
           show={showModal}
           onClose={handleContinue}
           isGameWon={isGameWon}
-          onPlayAgainGame={handlePlayAgain}
+          onPlayAgain={handlePlayAgain}
           onResetGame={handleResetGame}
         />
       )}
