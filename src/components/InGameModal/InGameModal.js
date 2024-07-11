@@ -1,7 +1,10 @@
 import "./InGameModal.scss";
-import PausedTitleImg from "../../assets/images/paused-mobile.svg";
-import WonTitleImg from "../../assets/images/win-mobile.svg";
-import LoseTitleImg from "../../assets/images/lose-mobile.svg";
+import PausedTitleImgMobile from "../../assets/images/paused-mobile.svg";
+import PausedTitleImgDesktop from "../../assets/images/paused-desktop.svg";
+import WonTitleImgMobile from "../../assets/images/win-mobile.svg";
+import WonTitleImgDesktop from "../../assets/images/win-desktop.svg";
+import LoseTitleImgMobile from "../../assets/images/lose-mobile.svg";
+import LoseTitleImgDesktop from "../../assets/images/lose-desktop.svg";
 import { Link } from "react-router-dom";
 
 export default function InGameModal({
@@ -15,20 +18,24 @@ export default function InGameModal({
     return null;
   }
 
-  let modalTitleImg;
   let modalAltText;
   let primaryButtonText;
+  let mobileImg;
+  let desktopImg;
 
   if (isGameWon === true) {
-    modalTitleImg = WonTitleImg;
+    mobileImg = WonTitleImgMobile;
+    desktopImg = WonTitleImgDesktop;
     modalAltText = "You Win";
     primaryButtonText = "Play Again!";
   } else if (isGameWon === false) {
-    modalTitleImg = LoseTitleImg;
+    mobileImg = LoseTitleImgMobile;
+    desktopImg = LoseTitleImgDesktop;
     modalAltText = "You Lose";
     primaryButtonText = "Play Again";
   } else {
-    modalTitleImg = PausedTitleImg;
+    mobileImg = PausedTitleImgMobile;
+    desktopImg = PausedTitleImgDesktop;
     modalAltText = "Paused";
     primaryButtonText = "Continue";
   }
@@ -46,11 +53,10 @@ export default function InGameModal({
   return (
     <div className="modal__backdrop">
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-        <img
-          className="modal__title-img"
-          src={modalTitleImg}
-          alt={modalAltText}
-        />
+        <picture className="modal__title-img">
+          <source srcSet={desktopImg} media="(min-width: 768px)" />
+          <img src={mobileImg} alt={modalAltText} />
+        </picture>
         <div className="modal__btns">
           <button onClick={handlePrimaryButtonClick}>
             {primaryButtonText}
