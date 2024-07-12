@@ -97,15 +97,11 @@ export default function InGame() {
           <img className="heart-icon" src={HeartIcon} alt="Heart" />
         </div>
       </nav>
-      <section>
-        <WordDisplay word={word} guessedLetters={guessedLetters} />
-      </section>
-      <section>
-        <Keyboard
-          onGuessLetter={handleGuessedLetter}
-          guessedLetters={guessedLetters}
-        />
-      </section>
+      <WordDisplay word={word} guessedLetters={guessedLetters} />
+      <Keyboard
+        onGuessLetter={handleGuessedLetter}
+        guessedLetters={guessedLetters}
+      />
       {showModal && (
         <InGameModal
           show={showModal}
