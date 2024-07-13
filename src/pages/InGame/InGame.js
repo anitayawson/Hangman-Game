@@ -1,6 +1,6 @@
 import "./InGame.scss";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import MenuIcon from "../../assets/images/icon-menu.svg";
 import HeartIcon from "../../assets/images/icon-heart.svg";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
@@ -17,15 +17,18 @@ export default function InGame() {
   const [isGameWon, setIsGameWon] = useState(null);
   const [word, setWord] = useState("");
   const [progressPercentage, setProgressPercentage] = useState(100);
-  const location = useLocation();
-  const { category } = location.state || {};
+  const { slug } = useParams();
+  const { state } = useLocation();
   const { getRandomWord } = useCategories();
 
+  const category = state?.category || slug.replace(/-/g, " ");
+
   useEffect(() => {
-    if (location.state && location.state.word) {
-      setWord(location.state.word);
+    if (category) {
+      const randomWord = getRandomWord(category);
+      setWord(randomWord);
     }
-  }, [location.state]);
+  }, [category, getRandomWord]);
 
   useEffect(() => {
     if (word) {
@@ -43,14 +46,13 @@ export default function InGame() {
         const remainingTries = MAX_TRIES - wrongGuesses;
         const percentage = (remainingTries / MAX_TRIES) * 100;
         setProgressPercentage(percentage);
-        console.log(progressPercentage);
         if (remainingTries === 0) {
           setIsGameWon(false);
           setShowModal(true);
         }
       }
     }
-  }, [guessedLetters, word, progressPercentage]);
+  }, [guessedLetters, word]);
 
   const handleGuessedLetter = (letter) => {
     if (!guessedLetters.includes(letter)) {

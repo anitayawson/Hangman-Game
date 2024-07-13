@@ -13,11 +13,13 @@ export default function Categories() {
   }
 
   const handleCategoryClick = (categoryName) => {
-    const words = categories[categoryName];
-    const randomWord = words[Math.floor(Math.random() * words.length)].name;
-    navigate("/in-game", {
-      state: { word: randomWord, category: categoryName },
-    });
+    const slug = categoryName.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/in-game/${slug}`, { state: { category: categoryName } });
+    // const words = categories[categoryName];
+    // const randomWord = words[Math.floor(Math.random() * words.length)].name;
+    // navigate("/in-game", {
+    //   state: { word: randomWord, category: categoryName },
+    // });
   };
 
   return (
