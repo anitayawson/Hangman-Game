@@ -8,6 +8,7 @@ import Keyboard from "../../components/Keyboard/Keyboard";
 import WordDisplay from "../../components/WordDisplay/WordDisplay";
 import InGameModal from "../../components/InGameModal/InGameModal";
 import { useCategories } from "../../contexts/CategoriesContext";
+import Confetti from "react-canvas-confetti/dist/presets/pride";
 
 const MAX_TRIES = 8;
 
@@ -17,6 +18,8 @@ export default function InGame() {
   const [isGameWon, setIsGameWon] = useState(null);
   const [word, setWord] = useState("");
   const [progressPercentage, setProgressPercentage] = useState(100);
+  const [confettiVisible, setConfettiVisible] = useState(false);
+
   const { slug } = useParams();
   const { state } = useLocation();
   const { getRandomWord } = useCategories();
@@ -38,7 +41,8 @@ export default function InGame() {
       );
       if (correctGuesses.length === wordLetters.length) {
         setIsGameWon(true);
-        setShowModal(true);
+        setConfettiVisible(true);
+        setTimeout(() => setShowModal(true), 1500);
       } else {
         const wrongGuesses = guessedLetters.filter(
           (letter) => !wordLetters.includes(letter)
@@ -67,6 +71,7 @@ export default function InGame() {
     setGuessedLetters([]);
     setShowModal(false);
     setProgressPercentage(100);
+    setConfettiVisible(false);
   };
 
   const handleResetGame = () => {
@@ -75,10 +80,12 @@ export default function InGame() {
     setShowModal(false);
     setWord("");
     setProgressPercentage(100);
+    setConfettiVisible(false);
   };
 
   const handleContinue = () => {
     setShowModal(false);
+    setConfettiVisible(false);
   };
 
   const handleOpenModal = () => {
@@ -104,6 +111,7 @@ export default function InGame() {
         onGuessLetter={handleGuessedLetter}
         guessedLetters={guessedLetters}
       />
+      {confettiVisible && <Confetti autorun={1} />}
       {showModal && (
         <InGameModal
           show={showModal}
